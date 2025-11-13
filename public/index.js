@@ -1,4 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const LOCAL_API_URL = "http://localhost:3000";
+  const productionOverride =
+    typeof window.API_BASE_URL === "string" && window.API_BASE_URL.trim().length > 0
+      ? window.API_BASE_URL.trim()
+      : "https://tu-backend-en-produccion.com";
+  const isLocalhost = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+  const API_BASE_URL = isLocalhost ? LOCAL_API_URL : productionOverride;
   /* ===== Navbar toggle (mobile) ===== */
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".main-nav");
@@ -49,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
       };
 
       try {
-        const response = await fetch("http://localhost:3000/api/contact", {
+        const response = await fetch(`${API_BASE_URL}/api/contact`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

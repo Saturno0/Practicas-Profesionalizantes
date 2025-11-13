@@ -316,7 +316,10 @@
 
   </div>
   <!-- JS principal -->
-  <script src="index.js"></script>
+  <script>
+    window.API_BASE_URL = window.API_BASE_URL || "https://tu-backend-en-produccion.com";
+  </script>
+  <script src="index.js" defer></script>
 </body>
 
 </html>
