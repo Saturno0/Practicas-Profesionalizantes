@@ -3,6 +3,9 @@
 .env.*
 !.env.example
 
+#Datos del server
+*.txt
+
 # Dependency directories
 node_modules/
 

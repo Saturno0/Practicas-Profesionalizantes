@@ -51,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const formData = {
         name: form.name.value,
         email: form.email.value,
-        projectType: form.projectType.value,
         message: form.message.value,
       };
 
