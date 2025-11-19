@@ -178,7 +178,7 @@ a {
 
 /* ===== Navbar ===== */
 .site-header {
-  height: 8vh;
+  height: 6vh;
   position: sticky;
   top: 0;
   z-index: 20;
