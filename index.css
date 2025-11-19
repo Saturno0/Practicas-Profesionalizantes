@@ -191,7 +191,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 24px;
+  padding: 5px 24px;
 }
 
 .logo {
@@ -637,7 +637,7 @@ a {
 .redes img {
   width: 22px;
   height: 22px;
-  filter: invert(100%); /* iconos blancos si son svg negros */
+  filter: brightness(0) invert(1); /* iconos blancos sin importar su color original */
   opacity: 0.9;
   transition: opacity 0.2s ease;
 }
