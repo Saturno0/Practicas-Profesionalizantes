@@ -717,16 +717,15 @@ a {
 
   .hero {
     position: relative;
-    min-height: 72vh;
+    min-height: 94vh;
     display: flex;
     align-items: center;
     color: #ffffff;
     overflow: hidden;
     background-image: url("https://images.unsplash.com/photo-1645651964715-d200ce0939cc?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: #000;
   }
 
   .hero-content {

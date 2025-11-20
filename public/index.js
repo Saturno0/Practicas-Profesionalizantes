@@ -1,19 +1,42 @@
 document.addEventListener("DOMContentLoaded", () => {
   const LOCAL_API_URL = "http://localhost:3000";
   const productionOverride =
-    typeof window.API_BASE_URL === "string" && window.API_BASE_URL.trim().length > 0
+    typeof window.API_BASE_URL === "string" &&
+    window.API_BASE_URL.trim().length > 0
       ? window.API_BASE_URL.trim()
       : "https://tu-backend-en-produccion.com";
-  const isLocalhost = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+  const isLocalhost = ["localhost", "127.0.0.1"].includes(
+    window.location.hostname
+  );
   const API_BASE_URL = isLocalhost ? LOCAL_API_URL : productionOverride;
   /* ===== Navbar toggle (mobile) ===== */
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".main-nav");
 
   if (toggle && nav) {
+    const navLinks = nav.querySelectorAll("a");
+    const closeMenu = () => {
+      nav.classList.remove("nav-open");
+      toggle.classList.remove("nav-open");
+      toggle.setAttribute("aria-expanded", "false");
+    };
+
     toggle.addEventListener("click", () => {
-      nav.classList.toggle("nav-open");
+      const isOpen = nav.classList.toggle("nav-open");
       toggle.classList.toggle("nav-open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.forEach((link) => link.addEventListener("click", closeMenu));
+
+    document.addEventListener("click", (event) => {
+      if (
+        nav.classList.contains("nav-open") &&
+        !nav.contains(event.target) &&
+        !toggle.contains(event.target)
+      ) {
+        closeMenu();
+      }
     });
   }
 
